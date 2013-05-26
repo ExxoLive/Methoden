@@ -1,0 +1,90 @@
+package methoden;
+
+// Erweiterung des Rechners, um:
+// 1.) Eine Methode <Rückgabe-Typ> rechne ( <Typ1> zahl1, <Operator-Typ> operator, <Typ2> zahl2 )
+// Benutzung: double ergebnis = rechne( 55, "*", 2 ); // ergebnis = 110
+// 
+// 2.) 3 Methoden aus der Klasse java.lang.Math (siehe Java-API Version 7)
+
+public class Test {
+
+  public static void main(String[] args) {
+		double bla = rechne( 55, "*", 2 );
+		System.out.println(bla);
+	}
+	
+	public static double rechne(double zahl1, String z, double zahl2 ){
+		
+		double ergebnis = 0;
+		
+		switch(z){
+		
+		case "+" :
+			ergebnis = addiere(zahl1 , zahl2);
+			break;
+		case "-" :
+			ergebnis = subtrahiere(zahl1, zahl2);
+			break;
+		case "/" :
+			ergebnis = dividiere(zahl1, zahl2);
+			break;
+		case "*" :
+			ergebnis = multipliziere(zahl1, zahl2);
+			break;
+			
+		default : 
+			System.out.println("Die Eingabe des Rechenzeichens konnte nicht erkannt werden");
+		}
+		
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen addiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Addition
+	 */
+	public static double addiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a + b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen subtrahiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Subtraktion
+	 */
+	public static double subtrahiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a - b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen dividiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Division
+	 */
+	public static double dividiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a / b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen multipliziert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Multiplikation
+	 */
+	public static double multipliziere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a * b;
+		return ergebnis;
+	}
+	
+}
