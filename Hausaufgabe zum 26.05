@@ -1,0 +1,291 @@
+package methoden;
+
+import java.util.Scanner;
+import java.math.*;
+
+/**
+ * Klasse zur Repraesentation eines Taschenrechners.
+ * @author Grootoonk, edited by Stefan Alexander Gaier
+ * @date 26. Mai 2013
+ */
+public class Grt_Hausaufgabe_Loesung
+{
+  /**
+	 * Hauptmethode
+	 * @param args Kommandozeilenparameter
+	 */
+	public static void main( String[] args )
+	{
+		// Variablen anlegen
+		double zahl1, zahl2, ergebnis;
+		int auswahl;
+		
+		
+		// Scanner zum Einlesen anlegen
+		Scanner scanner = new Scanner( System.in );
+
+		do {
+			
+			auswahl = optionen();
+			
+			// Funktion bearbeiten
+			switch( auswahl ) {
+			case 0:
+					System.out.println( "Beende Programm." );
+				break;
+
+			case 1:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				System.out.print( "Eingabe Wert 2: ");
+				zahl2 = scanner.nextDouble();
+				
+				// Berechnen der Aufgabe + Ausgabe
+				ergebnis = addiere(zahl1, zahl2);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+
+			case 2:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				System.out.print( "Eingabe Wert 2: ");
+				zahl2 = scanner.nextDouble();
+				
+				// Berechnen der Aufgabe + Ausgabe
+				ergebnis = subtrahiere(zahl1, zahl2);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+
+			case 3:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				System.out.print( "Eingabe Wert 2: ");
+				zahl2 = scanner.nextDouble();
+				
+				// Berechnen der Aufgabe + Ausgabe
+				ergebnis = multipliziere(zahl1, zahl2);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+
+			case 4:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				System.out.print( "Eingabe Wert 2: ");
+				zahl2 = scanner.nextDouble();
+				
+				// Berechnen der Aufgabe + Ausgabe
+				ergebnis = dividiere(zahl1, zahl2);
+				if(zahl2 == 0){
+					System.out.println("Teilen durch 0 ist nicht möglich");
+				} else {
+				System.out.println( "Ergebnis: " + ergebnis );
+				}
+				break;
+
+			case 5:
+				// Einlesen beider Operanden (Radius + Seitenhöhe)
+				System.out.print( "Bitte gebe den Radius des Kegels an: ");
+				zahl1 = scanner.nextDouble();
+				System.out.print( "Bitte gebe die Seitenhöhe des Kegels an ");
+				zahl2 = scanner.nextDouble();
+				
+				ergebnis = kegel_mantelflaeche(zahl1, zahl2);
+				System.out.println( "Die Mantelfläche mit dem Radius " + zahl1 + " und der Seitenhöhe " + zahl2 + " beträgt " + ergebnis );
+				break;
+				
+				
+			case 6:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				System.out.println("Bitte gebe das Rechenzeichen an ( * , + , - , / ) : ");
+				String z;
+				z = scanner.next();
+				System.out.print( "Eingabe Wert 2: ");
+				zahl2 = scanner.nextDouble();
+				
+				ergebnis = rechne(zahl1, z, zahl2);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+				
+			case 7:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				
+				ergebnis = sinus(zahl1);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+				
+			case 8:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				
+				ergebnis = kosinus(zahl1);
+				System.out.println( "Ergebnis: " + ergebnis );
+				break;
+				
+			case 9:
+				// Einlesen beider Operanden (Zahlen)
+				System.out.print( "Eingabe Wert 1: ");
+				zahl1 = scanner.nextDouble();
+				
+				ergebnis = tangens(zahl1);
+				System.out.println( "Ergebnis: " + ergebnis );
+				
+			default:
+				System.out.println( "Option nicht bekannt." );
+			}	// Ende von switch-case
+		} while( auswahl != 0 );	// Ende von do-while
+
+		// Scanner schliessen, da Programmende
+		scanner.close();
+	}	// Ende der main-Methode
+	
+	/**
+	 * In der Methode werden die möglichen Optionen angezeigt und die ausgewählte
+	 * Option wird übergeben
+	 * @return Variable auswahl für switch-case
+	 */
+	public static int optionen(){
+		
+		int auswahl = 0;
+		
+		// Scanner zum Einlesen anlegen
+		Scanner scanner = new Scanner( System.in );
+		
+		// Programmoptionen anzeigen
+		System.out.println( "Bitte waehlen Sie eine Option:" );
+		System.out.println( "0 - Beenden" );
+		System.out.println( "1 - Addieren" );
+		System.out.println( "2 - Subthrahieren" );
+		System.out.println( "3 - Multiplizieren" );
+		System.out.println( "4 - Dividieren" );
+		System.out.println( "5 - Mantelfläche eines Kegels berechnen ");
+		System.out.println( "6 - Methode rechne :) ");
+		System.out.println( "7 - Sinus berechnen");
+		System.out.println( "8 - Kosinus berechnen ");
+		System.out.println( "9 - Tagens berechnen");
+		
+
+		// Einlesen der gewuenschten Funktion
+		System.out.print( "Ihre Eingabe: " );
+		auswahl = scanner.nextInt();
+		return auswahl;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen addiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Addition
+	 */
+	public static double addiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a + b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen subtrahiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Subtraktion
+	 */
+	public static double subtrahiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a - b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen dividiert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Division
+	 */
+	public static double dividiere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a / b;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode werden die 2 Zahlen multipliziert
+	 * @param Erste Zahl
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Multiplikation
+	 */
+	public static double multipliziere(double a, double b){
+		double ergebnis = 0;
+		ergebnis = a * b;
+		return ergebnis;
+	}
+	
+	/**
+	 * Die Methode berechnet die Mantelfläche eines Kegels mit
+	 * den übergebenden Werten
+	 * @param radius
+	 * @param seitenhoehe
+	 * @return Mantelfläche des Kegels mit den Werten
+	 */
+	public static double kegel_mantelflaeche(double radius, double seitenhoehe){
+		double ergebnis = Math.PI * radius * seitenhoehe ;
+		return ergebnis;
+	}
+	
+	/**
+	 * In der Methode wird die Rechnung mit den eingegebenen Werten berechnet
+	 * @param Erste Zahl
+	 * @param Rechenzeichen
+	 * @param Zweite Zahl
+	 * @return Ergebnis der Rechnung
+	 */
+	public static double rechne(double zahl1, String z, double zahl2 ){
+		
+		double ergebnis = 0;
+		
+		switch(z){
+		
+		case "+" :
+			ergebnis = addiere(zahl1 , zahl2);
+			break;
+		case "-" :
+			ergebnis = subtrahiere(zahl1, zahl2);
+			break;
+		case "/" :
+			ergebnis = dividiere(zahl1, zahl2);
+			break;
+		case "*" :
+			ergebnis = multipliziere(zahl1, zahl2);
+			break;
+			
+		default : 
+			System.out.println("Die Eingabe des Rechenzeichens konnte nicht erkannt werden");
+		}
+		
+		return ergebnis;
+	}
+	
+	public static double sinus(double a){
+		double ergebnis = Math.sin(a);
+		return ergebnis;
+	}
+	
+	public static double kosinus(double a){
+		double ergebnis = Math.cos(a);
+		return ergebnis;
+	}
+	
+	public static double tangens(double a){
+		double ergebnis = Math.tan(a);
+		return ergebnis;
+	}
+
+	
+}	// Ende der Rechner-Klasse
