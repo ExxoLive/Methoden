@@ -245,7 +245,7 @@ public class Grt_Hausaufgabe_Loesung
 	 * @param Rechenzeichen
 	 * @param Zweite Zahl
 	 * @return Ergebnis der Rechnung
-	 */
+	 */  
 	public static double rechne(double zahl1, String z, double zahl2 ){
 		
 		double ergebnis = 0;
@@ -272,20 +272,33 @@ public class Grt_Hausaufgabe_Loesung
 		return ergebnis;
 	}
 	
+	/**
+	 * Berechnet den Sinus von a
+	 * @param a Winkel in Grad
+	 * @return Sinus von a
+	 */
 	public static double sinus(double a){
 		double ergebnis = Math.sin(a);
 		return ergebnis;
 	}
 	
+	/**
+	 * Berechnet den Kosinus von a
+	 * @param a Winkel in Grad
+	 * @return Kosinus von a
+	 */
 	public static double kosinus(double a){
 		double ergebnis = Math.cos(a);
 		return ergebnis;
 	}
 	
+	/**
+	 * Berechnet den Tangens von a
+	 * @param a Winkel in Grad
+	 * @return Tangens von a
+	 */
 	public static double tangens(double a){
 		double ergebnis = Math.tan(a);
 		return ergebnis;
 	}
-
-	
 }	// Ende der Rechner-Klasse
